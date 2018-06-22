@@ -12,9 +12,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
+ * 应急使用，可能会出问题，请自己进行测试。
  * 用于超多dex文件合并
  */
-public class Main {
+public class DexMergerTool {
     private static HashMap<String, Dex> dexHashMap = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
@@ -43,7 +44,7 @@ public class Main {
         System.out.println("开始尝试合并dex文件");
         Dex dex = dexHashMap.get("classes.dex");
         dexHashMap.remove("classes.dex");
-        int index = 0;
+        int index = 1;
         boolean hasMore = false;
         for (String name : dexHashMap.keySet()) {
             Dex temp = dexHashMap.get(name);
@@ -133,7 +134,6 @@ public class Main {
         if (file.isDirectory() || !file.exists()) {
             return false;
         } else {
-
             return true;
         }
         //return false;
